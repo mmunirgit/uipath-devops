@@ -7,7 +7,7 @@ pipeline {
     stages {
         stage("build") {
             steps {
-                echo 'building the application..'    
+                checkout([$class: 'GitSCM', branches: [[name: '*/master']], doGenerateSubmoduleConfigurations: false, extensions: [], submoduleCfg: [], userRemoteConfigs: [[credentialsId: env.GIT_CREDENTIALS_ID, url: env.GIT_URL]]])
             }    
                 
         }
@@ -26,4 +26,5 @@ pipeline {
                 
         }
     }
+
 }
