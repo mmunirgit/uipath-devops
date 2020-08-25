@@ -7,6 +7,7 @@ pipeline {
     stages {
         stage("build") {
             steps {
+		echo 'initializing build..'   
                 checkout(
                     [$class: 'GitSCM',
                     branches: [[name: '*/master']], 
